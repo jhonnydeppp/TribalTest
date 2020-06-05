@@ -9,11 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.jhonnydev.tribaltest.R
-import com.jhonnydev.tribaltest.databinding.DetailImageFragmentBinding
+import com.jhonnydev.tribaltest.databinding.UserFragmentBinding
 import com.jhonnydev.tribaltest.models.User
-import com.jhonnydev.tribaltest.ui.detailimage.DetailImageViewModel
 import com.jhonnydev.tribaltest.utils.Utils
-import kotlinx.android.synthetic.main.detail_image_fragment.*
+import kotlinx.android.synthetic.main.user_fragment.*
+
 
 class UserFragmentView : Fragment() {
     private lateinit var mUserViewModel: UserViewModel
@@ -37,12 +37,12 @@ class UserFragmentView : Fragment() {
         mUserViewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
 
         val root = inflater.inflate(R.layout.user_fragment, container, false)
-        val binding: DetailImageFragmentBinding = DataBindingUtil.inflate(
+        val binding: UserFragmentBinding = DataBindingUtil.inflate(
             inflater,R.layout.user_fragment, container, false
         )
         val view: View = binding.getRoot()
 
-        binding.photoDetail = user
+        binding.userDetail = user
         return inflater.inflate(R.layout.user_fragment, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,8 +51,9 @@ class UserFragmentView : Fragment() {
     }
 
     fun init(){
-        context?.let { Utils.loadImage(user.portfolio_url, iv_image, it) }
+        context?.let { Utils.loadImage(user.portfolio_url, iv_user, it) }
     }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
