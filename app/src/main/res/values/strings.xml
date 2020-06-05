@@ -7,5 +7,6 @@
     <string name="imagen_de_guartar_en_favoritos">imagen de guartar en favoritos</string>
     <string name="imagen_de_likes">imagen de likes</string>
     <string name="guardar">Guardar</string>
+    <string name="buscar">Buscar</string>
 
 </resources>

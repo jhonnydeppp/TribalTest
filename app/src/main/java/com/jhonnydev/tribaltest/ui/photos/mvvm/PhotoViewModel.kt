@@ -14,15 +14,24 @@ class PhotoViewModel : ViewModel(), BaseContract.ServiceErrorApi{
     val mPhotoModel: PhotoModel = PhotoModel()
     private val ENDPOINT_PHOTOS = "ENDPOINT_PHOTOS"
     var photosList: MutableLiveData<List<PhotoResponse>> = MutableLiveData()
-
+    private var aux :MutableLiveData<List<PhotoResponse>> = MutableLiveData()
     @SuppressLint("CheckResult")
     fun loadPhotos() {
         mPhotoModel.getPhotoList().subscribeWith(object: CallbackHandlingObserver<List<PhotoResponse>>(this, ENDPOINT_PHOTOS){
             override fun onSuccess(data: List<PhotoResponse>) {
                 photosList.value = data
+                aux.value = data
                 Log.i(TAG, "DATA --->"+photosList.value)
             }
         })
+    }
+
+    fun filterByUser(user :String){
+            if (user.length <= 1)
+                photosList.value = aux.value
+            else
+                photosList.value = aux.value!!.filter { it.user.username == user || it.user.first_name == user || it.user.last_name == user
+                        || (it.user.first_name + it.user.first_name)  == user}
     }
 
     override fun onUnknownError(error: String, caller: String) {
