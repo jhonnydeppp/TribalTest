@@ -1,6 +1,6 @@
 package com.jhonnydev.tribaltest.ui.photos.mvvm
 
-import PhotoResponse
+import com.jhonnydev.tribaltest.models.PhotoResponse
 import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

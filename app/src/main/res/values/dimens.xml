@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="username">12sp</dimen>
+    <dimen name="likes">12sp</dimen>
+    <dimen name="like">12sp</dimen>
+</resources>

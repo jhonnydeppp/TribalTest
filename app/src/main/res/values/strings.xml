@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">TribalTest</string>
     <string name="secret_key">m_Wobw7TeW5nfB_PaSI97sKUrS1Wz74e5xglg3v5cS8</string>
+    <string name="foto_de_la_api">foto de la api</string>
+    <string name="imagen_del_usuario">imagen del usuario</string>
+    <string name="likes">Likes:</string>
+    <string name="imagen_de_guartar_en_favoritos">imagen de guartar en favoritos</string>
+    <string name="imagen_de_likes">imagen de likes</string>
+    <string name="guardar">Guardar</string>
 
 </resources>

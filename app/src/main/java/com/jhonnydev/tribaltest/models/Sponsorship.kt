@@ -1,3 +1,5 @@
+package com.jhonnydev.tribaltest.models
+
 import com.google.gson.annotations.SerializedName
 
 data class Sponsorship (

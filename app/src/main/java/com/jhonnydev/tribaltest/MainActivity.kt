@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.jhonnydev.tribaltest.ui.photos.mvvm.PhotoFragmentView
 import com.jhonnydev.tribaltest.utils.Utils
+import kotlinx.android.synthetic.main.main_activity.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +16,8 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             Utils.cambiarFragments(PhotoFragmentView.newInstance(),supportFragmentManager,R.id.container)
 
+            iv_photos.setOnClickListener{Utils.cambiarFragments(PhotoFragmentView.newInstance(),supportFragmentManager,R.id.container)}
+            iv_favorite.setOnClickListener{Utils.cambiarFragments(PhotoFragmentView.newInstance(),supportFragmentManager,R.id.container)}
         }
     }
 }

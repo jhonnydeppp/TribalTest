@@ -1,6 +1,6 @@
 package com.jhonnydev.tribaltest.api
 
-import PhotoResponse
+import com.jhonnydev.tribaltest.models.PhotoResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Headers
