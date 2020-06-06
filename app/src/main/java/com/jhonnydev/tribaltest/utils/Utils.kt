@@ -61,23 +61,25 @@ object Utils {
     }
 
     fun saveFavorite(mPhotoResponse: PhotoResponse) {
-        val list :MutableList<PhotoResponse> = PreferencesUtils.getFavoritesList() as MutableList<PhotoResponse>
+        val list :List<PhotoResponse> = PreferencesUtils.getFavoritesList()
         if (list.isNullOrEmpty())
             PreferencesUtils.setFavoritesList(listOf(mPhotoResponse))
         else
             if (list.filter { it == mPhotoResponse }.isEmpty()){
-                list.add(mPhotoResponse)
-                PreferencesUtils.setFavoritesList((list as List<PhotoResponse>))
+                val listAux = list as MutableList
+                listAux.add(mPhotoResponse)
+                PreferencesUtils.setFavoritesList((listAux))
             }
     }
 
 
     fun deleteFavorite(mPhotoResponse: PhotoResponse) {
-        val list :MutableList<PhotoResponse> = PreferencesUtils.getFavoritesList() as MutableList<PhotoResponse>
+        val list :List<PhotoResponse> = PreferencesUtils.getFavoritesList()
         if (!list.isNullOrEmpty())
             if (list.filter { it == mPhotoResponse }.isNotEmpty()){
-                list.remove(mPhotoResponse)
-                PreferencesUtils.setFavoritesList(list)
+                val listAux = list as MutableList
+                listAux.remove(mPhotoResponse)
+                PreferencesUtils.setFavoritesList(listAux)
             }
     }
 }
