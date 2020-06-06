@@ -13,6 +13,9 @@ import com.jhonnydev.tribaltest.databinding.DetailImageFragmentBinding
 import com.jhonnydev.tribaltest.models.PhotoResponse
 import com.jhonnydev.tribaltest.utils.Utils
 import kotlinx.android.synthetic.main.detail_image_fragment.*
+import kotlinx.android.synthetic.main.detail_image_fragment.iv_back
+import kotlinx.android.synthetic.main.detail_image_fragment.iv_user
+import kotlinx.android.synthetic.main.user_fragment.*
 
 
 class DetailImageFragment : Fragment() {
@@ -52,6 +55,7 @@ class DetailImageFragment : Fragment() {
 
     fun init(){
        // mDetailImageViewModel.loadImage(photo)
+        iv_back.setOnClickListener{ activity?.onBackPressed() }
         context?.let { Utils.loadImage(photo.urls.small, iv_image, it) }
         context?.let { Utils.loadImageRoundedImage(photo.user.profile_image.small, iv_user, it) }
     }

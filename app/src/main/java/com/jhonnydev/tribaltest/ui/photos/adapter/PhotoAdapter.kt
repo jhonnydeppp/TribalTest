@@ -15,7 +15,7 @@ import com.jhonnydev.tribaltest.models.User
 import com.jhonnydev.tribaltest.ui.detailimage.DetailImageFragment
 import com.jhonnydev.tribaltest.ui.user.mvvm.UserFragmentView
 import com.jhonnydev.tribaltest.utils.Utils
-import com.squareup.picasso.Picasso
+
 
 
 class PhotoAdapter (

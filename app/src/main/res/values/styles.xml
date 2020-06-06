@@ -11,10 +11,9 @@
 
     </style>
 
-
     <style name="FabDiamondOverlay" parent="">
         <item name="cornerFamily">cut</item>
-        <item name="cornerSize">8dp</item>
+        <item name="cornerSize">@null</item>
     </style>
 
 </resources>

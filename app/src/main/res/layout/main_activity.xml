@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="15dp"
-        android:background="@drawable/shape_rectangle_round_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +24,6 @@
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bar"
-        style="@style/FabDiamondOverlay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -71,19 +69,18 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
+        style="@style/FabDiamondOverlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:baselineAlignBottom="false"
         android:clickable="true"
-        android:foreground="@android:drawable/ic_input_add"
-        android:foregroundTint="@color/colorPrimaryDark"
+        android:focusable="true"
 
+        android:foreground="@mipmap/ic_add"
         android:tintMode="add"
         android:visibility="visible"
         app:backgroundTint="@color/colorAccent"
         app:layout_anchor="@id/bar"
-        app:layout_anchorGravity="bottom|center"
-        app:rippleColor="#FFFFFF"
-        android:focusable="true" />
+        app:layout_anchorGravity="bottom|center" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

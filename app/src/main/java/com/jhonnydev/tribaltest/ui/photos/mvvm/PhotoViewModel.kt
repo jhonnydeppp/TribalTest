@@ -15,13 +15,14 @@ class PhotoViewModel : ViewModel(), BaseContract.ServiceErrorApi{
     private val ENDPOINT_PHOTOS = "ENDPOINT_PHOTOS"
     var photosList: MutableLiveData<MutableList<PhotoResponse>> = MutableLiveData()
     private var aux :MutableLiveData<MutableList<PhotoResponse>> = MutableLiveData()
-    var page = 0
+    var page =10
 
     @SuppressLint("CheckResult")
     fun loadPhotos() {
         page+=1
         mPhotoModel.getPhotoList("$page").subscribeWith(object: CallbackHandlingObserver<List<PhotoResponse>>(this, ENDPOINT_PHOTOS){
             override fun onSuccess(data: List<PhotoResponse>) {
+                Log.i(TAG, "DATA --->"+data.toString())
                 if(photosList.value == null)
                     photosList.value = data as MutableList<PhotoResponse>
                 else
@@ -29,7 +30,7 @@ class PhotoViewModel : ViewModel(), BaseContract.ServiceErrorApi{
 
                 aux.value = photosList.value
 
-                Log.i(TAG, "DATA --->"+photosList.value)
+
             }
         })
     }

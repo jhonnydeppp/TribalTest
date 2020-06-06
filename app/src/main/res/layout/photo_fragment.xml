@@ -27,7 +27,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:drawableStart="@drawable/ic_search_24dp"
         android:drawableTint="@color/grey"
         android:ems="10"
         android:fontFamily="@font/montserrat"
