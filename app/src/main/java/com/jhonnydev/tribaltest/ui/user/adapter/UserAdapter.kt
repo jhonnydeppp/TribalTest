@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jhonnydev.tribaltest.MainActivity
 import com.jhonnydev.tribaltest.R
 import com.jhonnydev.tribaltest.databinding.ItemPhotoBinding
+import com.jhonnydev.tribaltest.databinding.ItemUserPhotoBinding
+import com.jhonnydev.tribaltest.databinding.ItemUserPhotoBindingImpl
 import com.jhonnydev.tribaltest.models.User
 import com.jhonnydev.tribaltest.ui.detailimage.DetailImageFragment
 import com.jhonnydev.tribaltest.ui.user.mvvm.UserFragmentView
@@ -30,7 +32,7 @@ class UserAdapter (
         PhotoViewHolder(
             DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
-                R.layout.item_photo,
+                R.layout.item_user_photo,
                 parent,
                 false
             )
@@ -62,7 +64,7 @@ class UserAdapter (
 
 
     inner class PhotoViewHolder(
-        val recyclerviewPhotoBinding: ItemPhotoBinding
+        val recyclerviewPhotoBinding: ItemUserPhotoBinding
     ) : RecyclerView.ViewHolder(recyclerviewPhotoBinding.root)
 
 }

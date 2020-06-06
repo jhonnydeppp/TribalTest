@@ -24,7 +24,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
         app:layout_constraintVertical_bias="0.0"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="@string/todo" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -38,7 +39,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:contentDescription="@string/todo" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -48,7 +50,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:layout_marginEnd="8dp"
         android:src="@drawable/ic_done_24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/textView3"
@@ -68,7 +71,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:layout_height="wrap_content"
         android:text='@{userDetail.bio ?? ""}'
         android:textColor="@color/grey_xD"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/textView3"
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -78,7 +81,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text='@{userDetail.username ?? ""}'
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -124,7 +127,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Photos"
+        android:text="@string/photos"
         app:layout_constraintEnd_toEndOf="@+id/textView7"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/textView7"
@@ -134,7 +137,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Collections"
+        android:text="@string/collections"
         app:layout_constraintEnd_toEndOf="@+id/textView9"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/textView9"
@@ -144,7 +147,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Likes"
+        android:text="@string/likes"
         app:layout_constraintEnd_toEndOf="@+id/textView8"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/textView8"
@@ -170,11 +173,11 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         app:layout_constraintHorizontal_bias="0.88"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView13"
-        app:srcCompat="@mipmap/ic_location" />
+        app:srcCompat="@mipmap/ic_location"
+        android:contentDescription="@string/todo" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_user_images"
-        class="androidx.appcompat.app.AlertController$RecycleListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="45dp"
@@ -182,8 +185,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        tools:listitem="@layout/item_photo" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -193,12 +196,25 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.55"
+        app:layout_constraintGuide_percent="0.5"
         app:layout_constraintHeight_percent="50"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="50" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/photos"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rv_user_images"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
