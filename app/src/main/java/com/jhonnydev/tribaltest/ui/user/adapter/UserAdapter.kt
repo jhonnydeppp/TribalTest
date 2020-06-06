@@ -1,4 +1,4 @@
-package com.jhonnydev.tribaltest.ui.photos.adapter
+package com.jhonnydev.tribaltest.ui.user.adapter
 
 import android.app.Activity
 import com.jhonnydev.tribaltest.models.PhotoResponse
@@ -18,11 +18,11 @@ import com.jhonnydev.tribaltest.utils.Utils
 import com.squareup.picasso.Picasso
 
 
-class PhotoAdapter (
+class UserAdapter (
     private val photoList: List<PhotoResponse>,
     private val context: Context,
     private val activity: MainActivity
-) : RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder>(){
+) : RecyclerView.Adapter<UserAdapter.PhotoViewHolder>(){
 
     override fun getItemCount() = photoList.size
 

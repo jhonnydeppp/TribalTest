@@ -3,11 +3,9 @@ package com.jhonnydev.tribaltest.ui.photos.mvvm
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -41,7 +39,7 @@ class PhotoFragmentView : Fragment() {
 
     private fun rvConfig(){
         mPhotoViewModel.photosList.observe(viewLifecycleOwner, Observer { photo ->
-            rv_photos.also {
+            rv_favorites.also {
                 it.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                 it.setHasFixedSize(true)
 

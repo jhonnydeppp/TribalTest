@@ -9,7 +9,7 @@
     tools:context=".ui.photos.mvvm.PhotoFragmentView">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_photos"
+        android:id="@+id/rv_favorites"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"

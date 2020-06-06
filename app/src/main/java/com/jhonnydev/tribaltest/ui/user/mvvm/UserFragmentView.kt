@@ -51,7 +51,7 @@ class UserFragmentView : Fragment() {
     }
 
     private fun init(){
-       context?.let { Utils.loadImage(user.portfolio_url, iv_user, it) }
+       context?.let { Utils.loadImage(user.profile_image.small, iv_user, it) }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

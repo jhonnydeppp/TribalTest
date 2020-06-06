@@ -12,5 +12,7 @@
     <string name="eliminar">Eliminar</string>
     <string name="imagen_de_favoritos_del_menu_principal">imagen de favoritos del menu principal</string>
     <string name="imagen_de_fotos_del_menu_principal">imagen de fotos del menu principal</string>
+    <string name="guardar_favoritos">Imagen se ha guardado en favoritos</string>
+    <string name="borrar_favoritos">Imagen de ha borrado de favoritos</string>
 
 </resources>

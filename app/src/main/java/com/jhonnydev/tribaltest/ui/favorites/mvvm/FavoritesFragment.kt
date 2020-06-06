@@ -13,11 +13,12 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.jhonnydev.tribaltest.MainActivity
 import com.jhonnydev.tribaltest.R
 import com.jhonnydev.tribaltest.ui.favorites.adapter.FavoriteAdapter
+import com.jhonnydev.tribaltest.ui.favorites.adapter.RefreshRecycler
 import kotlinx.android.synthetic.main.favorites_fragment.*
 import kotlinx.android.synthetic.main.photo_fragment.et_buscar
-import kotlinx.android.synthetic.main.photo_fragment.rv_photos
+import kotlinx.android.synthetic.main.photo_fragment.rv_favorites
 
-class FavoritesFragment : Fragment() {
+class FavoritesFragment : Fragment() , RefreshRecycler {
     private lateinit var mFavoritesViewModel: FavoritesViewModel
     companion object {
         fun newInstance() = FavoritesFragment()
@@ -36,16 +37,17 @@ class FavoritesFragment : Fragment() {
         rvConfig()
         return root
     }
+
     private fun rvConfig(){
         mFavoritesViewModel.favoriteList.observe(viewLifecycleOwner, Observer { favorite ->
-            rv_photos.also {
+            rv_favorites.also {
                 if(favorite.isEmpty())
                     emptyList()
                 else
                     hideMessage()
                 it.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                 it.setHasFixedSize(true)
-                it.adapter = context?.let { it1 -> FavoriteAdapter(favorite, it1, activity as MainActivity) }
+                it.adapter = context?.let { it1 -> FavoriteAdapter(favorite, it1, activity as MainActivity,this ) }
             }
         })
     }
@@ -89,7 +91,10 @@ class FavoritesFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(FavoritesViewModel::class.java)
-        // TODO: Use the ViewModel
+    }
+
+    override fun refresh() {
+        mFavoritesViewModel.loadFavorites()
     }
 
 }
