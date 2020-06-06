@@ -1,0 +1,4 @@
+[submodule "feature/consumo_de_api"]
+	path = feature/consumo_de_api
+	url = https://github.com/jhonnydeppp/TribalTest.git
+	branch = master
