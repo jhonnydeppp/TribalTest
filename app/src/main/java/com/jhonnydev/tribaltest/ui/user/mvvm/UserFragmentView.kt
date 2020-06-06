@@ -43,15 +43,15 @@ class UserFragmentView : Fragment() {
         val view: View = binding.getRoot()
 
         binding.userDetail = user
-        return inflater.inflate(R.layout.user_fragment, container, false)
+        return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
     }
 
-    fun init(){
-        context?.let { Utils.loadImage(user.portfolio_url, iv_user, it) }
+    private fun init(){
+       context?.let { Utils.loadImage(user.portfolio_url, iv_user, it) }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

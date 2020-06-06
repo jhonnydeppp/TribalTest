@@ -7,15 +7,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.jhonnydev.tribaltest.MainActivity
 import com.jhonnydev.tribaltest.R
 import com.jhonnydev.tribaltest.ui.photos.adapter.PhotoAdapter
 import kotlinx.android.synthetic.main.photo_fragment.*
-import java.util.*
 
 
 class PhotoFragmentView : Fragment() {
@@ -43,10 +44,22 @@ class PhotoFragmentView : Fragment() {
             rv_photos.also {
                 it.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                 it.setHasFixedSize(true)
+
+                it.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                    override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                        super.onScrollStateChanged(recyclerView, newState)
+                        if (!recyclerView.canScrollVertically(1)) {
+                            mPhotoViewModel.loadPhotos()
+                            rvConfig()
+                        }
+                    }
+                })
+
                 it.adapter = context?.let { it1 -> PhotoAdapter(photo, it1, activity as MainActivity
                 ) }
             }
         })
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

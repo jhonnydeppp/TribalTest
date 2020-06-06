@@ -13,14 +13,22 @@ class PhotoViewModel : ViewModel(), BaseContract.ServiceErrorApi{
 
     val mPhotoModel: PhotoModel = PhotoModel()
     private val ENDPOINT_PHOTOS = "ENDPOINT_PHOTOS"
-    var photosList: MutableLiveData<List<PhotoResponse>> = MutableLiveData()
-    private var aux :MutableLiveData<List<PhotoResponse>> = MutableLiveData()
+    var photosList: MutableLiveData<MutableList<PhotoResponse>> = MutableLiveData()
+    private var aux :MutableLiveData<MutableList<PhotoResponse>> = MutableLiveData()
+    var page = 0
+
     @SuppressLint("CheckResult")
     fun loadPhotos() {
-        mPhotoModel.getPhotoList().subscribeWith(object: CallbackHandlingObserver<List<PhotoResponse>>(this, ENDPOINT_PHOTOS){
+        page+=1
+        mPhotoModel.getPhotoList("$page").subscribeWith(object: CallbackHandlingObserver<List<PhotoResponse>>(this, ENDPOINT_PHOTOS){
             override fun onSuccess(data: List<PhotoResponse>) {
-                photosList.value = data
-                aux.value = data
+                if(photosList.value == null)
+                    photosList.value = data as MutableList<PhotoResponse>
+                else
+                    photosList.value!!.addAll(data)
+
+                aux.value = photosList.value
+
                 Log.i(TAG, "DATA --->"+photosList.value)
             }
         })
@@ -31,7 +39,7 @@ class PhotoViewModel : ViewModel(), BaseContract.ServiceErrorApi{
                 photosList.value = aux.value
             else
                 photosList.value = aux.value!!.filter { it.user.username == user || it.user.first_name == user || it.user.last_name == user
-                        || (it.user.first_name + it.user.first_name)  == user}
+                        || (it.user.first_name + it.user.first_name)  == user} as MutableList
     }
 
     override fun onUnknownError(error: String, caller: String) {

@@ -8,5 +8,9 @@
     <string name="imagen_de_likes">imagen de likes</string>
     <string name="guardar">Guardar</string>
     <string name="buscar">Buscar</string>
+    <string name="parece_que_no_tienes_ningun_favorito_aun">Parece que no tienes ningun favorito aun</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="imagen_de_favoritos_del_menu_principal">imagen de favoritos del menu principal</string>
+    <string name="imagen_de_fotos_del_menu_principal">imagen de fotos del menu principal</string>
 
 </resources>

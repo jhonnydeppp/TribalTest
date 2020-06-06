@@ -54,7 +54,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text='@{photoDetail.user.first_name ?? "" + photoDetail.user.last_name ?? ""}'
+        android:text='@{userDetail.first_name ?? "" + userDetail.last_name ?? ""}'
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/iv_user"
@@ -172,8 +172,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         app:layout_constraintTop_toTopOf="@+id/textView13"
         app:srcCompat="@mipmap/ic_location" />
 
-    <view
-        android:id="@+id/iv_image"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_user_images"
         class="androidx.appcompat.app.AlertController$RecycleListView"
         android:layout_width="0dp"
         android:layout_height="0dp"

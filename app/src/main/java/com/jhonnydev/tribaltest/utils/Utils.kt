@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterInside
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import com.jhonnydev.tribaltest.models.PhotoResponse
 import com.squareup.picasso.Picasso
 
 
@@ -45,19 +46,38 @@ object Utils {
         Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
     }
 
-     fun loadImage(url: String,  image : ImageView, context: Context){
-         Glide.with(context)
-             .load(url)
-             .transform(CenterInside(),RoundedCorners(24))
-             .into(image)
-    }
-
-    fun loadImageRoundedImage(url: String,  image : ImageView, context: Context){
+    fun loadImage(url: String, image: ImageView, context: Context) {
         Glide.with(context)
             .load(url)
-
-            .transform(CenterInside(),RoundedCorners(100))
+            .transform(CenterInside(), RoundedCorners(24))
             .into(image)
     }
 
+    fun loadImageRoundedImage(url: String, image: ImageView, context: Context) {
+        Glide.with(context)
+            .load(url)
+            .transform(CenterInside(), RoundedCorners(100))
+            .into(image)
+    }
+
+    fun saveFavorite(mPhotoResponse: PhotoResponse) {
+        val list :MutableList<PhotoResponse> = PreferencesUtils.getFavoritesList() as MutableList<PhotoResponse>
+        if (list.isNullOrEmpty())
+            PreferencesUtils.setFavoritesList(listOf(mPhotoResponse))
+        else
+            if (list.filter { it == mPhotoResponse }.isEmpty()){
+                list.add(mPhotoResponse)
+                PreferencesUtils.setFavoritesList((list as List<PhotoResponse>))
+            }
+    }
+
+
+    fun deleteFavorite(mPhotoResponse: PhotoResponse) {
+        val list :MutableList<PhotoResponse> = PreferencesUtils.getFavoritesList() as MutableList<PhotoResponse>
+        if (!list.isNullOrEmpty())
+            if (list.filter { it == mPhotoResponse }.isNotEmpty()){
+                list.remove(mPhotoResponse)
+                PreferencesUtils.setFavoritesList(list)
+            }
+    }
 }

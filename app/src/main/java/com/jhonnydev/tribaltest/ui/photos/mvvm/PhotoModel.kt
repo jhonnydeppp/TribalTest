@@ -10,7 +10,7 @@ import io.reactivex.schedulers.Schedulers
 class PhotoModel {
     private val API = RetrofitClient.getClient().create(PhotoRestApi::class.java)
 
-    fun getPhotoList() = API.getPhotoList(Constants.API_KEY,"1").subscribeOn(Schedulers.io())
+    fun getPhotoList(page: String ) = API.getPhotoList(Constants.API_KEY,page).subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())!!
 
 }

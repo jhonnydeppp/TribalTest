@@ -12,9 +12,10 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.jhonnydev.tribaltest.MainActivity
 import com.jhonnydev.tribaltest.R
-import com.jhonnydev.tribaltest.ui.photos.adapter.PhotoAdapter
-import com.jhonnydev.tribaltest.ui.photos.mvvm.PhotoViewModel
-import kotlinx.android.synthetic.main.photo_fragment.*
+import com.jhonnydev.tribaltest.ui.favorites.adapter.FavoriteAdapter
+import kotlinx.android.synthetic.main.favorites_fragment.*
+import kotlinx.android.synthetic.main.photo_fragment.et_buscar
+import kotlinx.android.synthetic.main.photo_fragment.rv_photos
 
 class FavoritesFragment : Fragment() {
     private lateinit var mFavoritesViewModel: FavoritesViewModel
@@ -38,11 +39,23 @@ class FavoritesFragment : Fragment() {
     private fun rvConfig(){
         mFavoritesViewModel.favoriteList.observe(viewLifecycleOwner, Observer { favorite ->
             rv_photos.also {
+                if(favorite.isEmpty())
+                    emptyList()
+                else
+                    hideMessage()
                 it.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                 it.setHasFixedSize(true)
-                it.adapter = context?.let { it1 -> PhotoAdapter(favorite, it1, activity as MainActivity) }
+                it.adapter = context?.let { it1 -> FavoriteAdapter(favorite, it1, activity as MainActivity) }
             }
         })
+    }
+
+    private fun emptyList(){
+        tv_favorite_empty.visibility = View.VISIBLE
+    }
+
+    private fun hideMessage(){
+        tv_favorite_empty.visibility = View.GONE
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
