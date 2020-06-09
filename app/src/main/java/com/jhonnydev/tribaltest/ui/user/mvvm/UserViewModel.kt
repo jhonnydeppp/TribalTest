@@ -17,7 +17,7 @@ class UserViewModel : ViewModel() , BaseContract.ServiceErrorApi{
     val mUserModel: UserModel = UserModel()
     private val ENDPOINT_PHOTOS = "ENDPOINT_PHOTOS"
     var photosList: MutableLiveData<MutableList<PhotoResponse>> = MutableLiveData()
-    var page = 10 // empiezan desde la pagina 10 por que la api de cayo y no funcionaba, cuando regreso solo a partir de la pagina 10 funcionaba
+    var page = 0 // empiezan desde la pagina 10 por que la api de cayo y no funcionaba, cuando regreso solo a partir de la pagina 10 funcionaba
 
     @SuppressLint("CheckResult")
     fun loadPhotos() {
