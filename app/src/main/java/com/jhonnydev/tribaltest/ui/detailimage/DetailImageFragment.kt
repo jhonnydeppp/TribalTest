@@ -56,8 +56,8 @@ class DetailImageFragment : Fragment() {
     fun init(){
        // mDetailImageViewModel.loadImage(photo)
         iv_back.setOnClickListener{ activity?.onBackPressed() }
-        context?.let { Utils.loadImage(photo.urls.small, iv_image, it) }
-        context?.let { Utils.loadImageRoundedImage(photo.user.profile_image.small, iv_user, it) }
+        context?.let { Utils.loadImage(photo.urls.full, iv_image, it) }
+        context?.let { Utils.loadImageRoundedImage(photo.user.profile_image.medium, iv_user, it) }
     }
 
 

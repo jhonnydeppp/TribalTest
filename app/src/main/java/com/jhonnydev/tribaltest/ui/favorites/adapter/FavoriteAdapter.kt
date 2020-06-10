@@ -37,8 +37,8 @@ class FavoriteAdapter (
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
         holder.recyclerviewFavoriteBinding.favoriteItem = photoList[position]
-        Utils.loadImage(photoList[position].urls.small,  holder.recyclerviewFavoriteBinding.ivPhoto, context)
-        Utils.loadImageRoundedImage(photoList[position].user.profile_image.small,  holder.recyclerviewFavoriteBinding.ivUser, context)
+        Utils.loadImage(photoList[position].urls.full,  holder.recyclerviewFavoriteBinding.ivPhoto, context)
+        Utils.loadImageRoundedImage(photoList[position].user.profile_image.medium,  holder.recyclerviewFavoriteBinding.ivUser, context)
         holder.recyclerviewFavoriteBinding.ivUser.setOnClickListener{goToUser(photoList[position].user,activity)}
         holder.recyclerviewFavoriteBinding.tvName.setOnClickListener{goToUser(photoList[position].user,activity)}
         holder.recyclerviewFavoriteBinding.ivStart.setOnClickListener{deleteFavorite(photoList[position])}

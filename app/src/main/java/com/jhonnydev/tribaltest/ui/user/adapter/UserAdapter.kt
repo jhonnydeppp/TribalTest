@@ -39,8 +39,8 @@ class UserAdapter (
 
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
         holder.recyclerviewPhotoBinding.photoItem = photoList[position]
-        Utils.loadImage(photoList[position].urls.small,  holder.recyclerviewPhotoBinding.ivPhoto, context)
-        Utils.loadImageRoundedImage(photoList[position].user.profile_image.small,  holder.recyclerviewPhotoBinding.ivUser, context)
+        Utils.loadImage(photoList[position].urls.full,  holder.recyclerviewPhotoBinding.ivPhoto, context)
+        Utils.loadImageRoundedImage(photoList[position].user.profile_image.medium,  holder.recyclerviewPhotoBinding.ivUser, context)
         holder.recyclerviewPhotoBinding.ivUser.setOnClickListener{goToUser(photoList[position].user,activity)}
         holder.recyclerviewPhotoBinding.tvName.setOnClickListener{goToUser(photoList[position].user,activity)}
         holder.recyclerviewPhotoBinding.ivStart.setOnClickListener{saveFavorite(photoList[position])}
