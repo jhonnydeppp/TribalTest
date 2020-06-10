@@ -59,7 +59,7 @@ class UserFragmentView : Fragment() {
 
     private fun init(){
         iv_back.setOnClickListener{ activity?.onBackPressed() }
-       context?.let { Utils.loadImageRoundedImage(user.profile_image.small, iv_user, it) }
+       context?.let { Utils.loadImageRoundedImage(user.profile_image.medium, iv_user, it) }
     }
 
     private fun rvConfig(){
